@@ -9,16 +9,48 @@
 
    <script> 
 
-        
+       var a = 0;
+       var b = 0; 
 
         function add() {
-          var a = Number(document.getElementById("num1").value);
+          //var a = Number(document.getElementById("num1").value);
           var b = Number(document.getElementById("num2").value);
           document.getElementById("result").value = a +b;
         }
 
-        function claer() {
-          document.getElementById("result").value = "";
+        function clean() {
+          document.getElementById('result').value='';
+        }
+        function one () {
+         var a = document.getElementById("num1").value=1;
+        }
+
+        function two () {
+          var a = document.getElementById("num1").value=2;
+        }
+        function three () {
+          var a = document.getElementById("num1").value=3;
+        }
+        function four () {
+          var a = document.getElementById("num1").value=4;
+        }
+        function five () {
+          var a = document.getElementById("num1").value=1;
+        }
+        function six () {
+          var a = document.getElementById("num1").value=6;
+        }
+        function seven () {
+          var a = document.getElementById("num1").value=7;
+        }
+        function eight () {
+          var a = document.getElementById("num1").value=8;
+        }
+        function nine () {
+          var a = document.getElementById("num1").value=9;
+        }
+        function zero () {
+          var a = document.getElementById("num1").value=0;
         }
    
    </script>
@@ -31,28 +63,35 @@
     <br>
     <input type="text" id = "result" placeholder="output" size="9">
     <br>
-    <button type="button">1</button size="3">
-    <button type="button">2</button size="3">
-    <button type="button">3</button size="3">
+    <button type="button" onclick="one()">1</button size="3">
+    <button type="button" onclick="two()">2</button size="3">
+    <button type="button" onclick="three()">3</button size="3">
     <br>
-    <button type="button">4</button>
-    <button type="button">5</button>
-    <button type="button">6</button>
+    <button type="button" onclick="four()">4</button>
+    <button type="button" onclick="five()">5</button>
+    <button type="button" onclick="six()">6</button>
     <br>
-    <button type="button">7</button>
-    <button type="button">8</button>
-    <button type="button">9</button>
+    <button type="button" onclick="seven()">7</button>
+    <button type="button" onclick="eight()">8</button>
+    <button type="button" onclick="nine()">9</button>
     <br>
-    <button type="button">0</button>
+    <button type="button" onclick="zero()">0</button>
+    <button type="button"  onclick="clean()">Clear</button>
 
-    <button type="button"  ondblclick="add()">+</button>
+    <button type="button" onclick="add()">+</button>
     
     <button type="button">-</button>
     <br>
     <button type="button">*</button>
     <button type="button">/</button>
+    
     <button type="button">=</button>
+
+    
+    
   </form>
+
+
 </body>
 
 </html>
