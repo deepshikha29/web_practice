@@ -1,75 +1,82 @@
 <html>
 
 <head>
-  <link rel="stylesheet" type="text/css" href="calculator.css"  /> 
+  <link rel="stylesheet" type="text/css" href="calculator.css" />
   <title>calculator</title>
 </head>
 
 <body>
 
-   
+
 
   <form>
-    <input type="text" id = "num1" placeholder="num1" size="9">
+    <input type="text" id="num1" placeholder="num1" size="9">
     <br>
-    <input type="text" id = "num2" placeholder="num2" size="9">
-    <br>
-    <input type="text" id = "result" placeholder="output" size="9">
-    <br>
-    <button class="inputBtn" type="button" name="1" >1</button size="3">
+    <button class="inputBtn" type="button" name="1">1</button size="3">
     <button class="inputBtn" type="button" name="2">2</button size="3">
     <button class="inputBtn" type="button" name="3">3</button size="3">
     <br>
-    <button class="inputBtn" type="button" name="4" >4</button>
-    <button class="inputBtn" type="button" name="5" >5</button>
-    <button class="inputBtn" type="button" name="6" >6</button>
+    <button class="inputBtn" type="button" name="4">4</button>
+    <button class="inputBtn" type="button" name="5">5</button>
+    <button class="inputBtn" type="button" name="6">6</button>
     <br>
-    <button class="inputBtn" type="button" name="7" >7</button>
-    <button class="inputBtn" type="button" name="8" >8</button>
-    <button class="inputBtn" type="button" name="9" >9</button>
+    <button class="inputBtn" type="button" name="7">7</button>
+    <button class="inputBtn" type="button" name="8">8</button>
+    <button class="inputBtn" type="button" name="9">9</button>
     <br>
-    <button class="inputBtn" type="button" name="0" >0</button>
+    <button class="inputBtn" type="button" name="0">0</button>
     <button type="button" onclick="clean()">C</button>
 
-    <button type="button" name="1"onclick="add()">+</button>
-    
+    <button class="inputBtn" type="button" name="+">+</button>
+
     <button type="button">-</button>
     <br>
     <button type="button">*</button>
     <button type="button">/</button>
-    
-    <button type="button">=</button>
 
-    
-    
+    <button type="button" onclick="equal()" name="=">=</button>
+
+
+
   </form>
 
   <script> 
 
     var a = 0;
-    var b = 0; 
+    var b = 0;
+    var x = 0;
     var inputBtns = document.getElementsByClassName('inputBtn');
     var length = inputBtns.length;
-    for(i =0; i<length; i++) {
-      inputBtns[i].onclick = function() {
-        document.getElementById("num1").value = this.getAttribute("name");
-      };
+    for (i = 0; i < length; i++) {
+      inputBtns[i].onclick = function () {
+        // if (document.activeElement === document.getElementById("num1"))
+        document.getElementById('num1').value += this.getAttribute("name");
+
+      }
+    }
+    function equal() {
+      //document.getElementById('num1').value += this.getAttribute("name");
+      
+      output = document.getElementById("num1").value.split("+");
+      console.log(output);
+      sum = 0;
+      sum = Number(output[0]) + Number(output[1]);
+      console.log(sum);
+      document.getElementById("num1").value += "="+sum;
+
     }
 
-    
 
-    
+    function add() {
+      //var a = Number(document.getElementById("num1").value);
+      var b = Number(document.getElementById("num2").value);
+      document.getElementById("result").value = x + b;
+    }
 
-     function add() {
-       //var a = Number(document.getElementById("num1").value);
-       var b = Number(document.getElementById("num2").value);
-       document.getElementById("result").value = a +b;
-     }
-
-     function clean() {
-       document.getElementById('result').value='';
-     }
-     function one () {
+    function clean() {
+      document.getElementById('result').value = '';
+    }
+     /*function one () {
       // a = document.getElementById("num1").value=1;
         document.getElementById("num1").value = document.getElementById("oneBtn").getAttribute("name");
      }
@@ -100,9 +107,9 @@
      }
      function zero () {
        a = document.getElementById("num1").value=0;
-     }
+     }*/
 
-</script>
+  </script>
 
 
 </body>
