@@ -49,65 +49,33 @@
     var length = inputBtns.length;
     for (i = 0; i < length; i++) {
       inputBtns[i].onclick = function () {
-        // if (document.activeElement === document.getElementById("num1"))
+        
         document.getElementById('num1').value += this.getAttribute("name");
 
       }
     }
-    function equal() {
-      //document.getElementById('num1').value += this.getAttribute("name");
-      
+    function equal() {       
       output = document.getElementById("num1").value.split("+");
-      console.log(output);
       sum = 0;
-      sum = Number(output[0]) + Number(output[1]);
+      console.log(output.length);
+      for ( i=0; i<output.length; i++){
+      sum = sum + Number(output[i]);
       console.log(sum);
+     }
+     console.log(sum);
       document.getElementById("num1").value += "="+sum;
-
     }
 
 
-    function add() {
+    /*function add() {
       //var a = Number(document.getElementById("num1").value);
       var b = Number(document.getElementById("num2").value);
       document.getElementById("result").value = x + b;
-    }
+    }*/
 
     function clean() {
-      document.getElementById('result').value = '';
+      document.getElementById('num1').value = '';
     }
-     /*function one () {
-      // a = document.getElementById("num1").value=1;
-        document.getElementById("num1").value = document.getElementById("oneBtn").getAttribute("name");
-     }
-
-     function two () {
-       a = document.getElementById("num1").value=2;
-     }
-     function three () {
-       a = document.getElementById("num1").value=3;
-     }
-     function four () {
-       a = document.getElementById("num1").value=4;
-     }
-     function five () {
-       a = document.getElementById("num1").value=1;
-     }
-     function six () {
-       a = document.getElementById("num1").value=6;
-     }
-     function seven () {
-       a = document.getElementById("num1").value=7;
-     }
-     function eight () {
-       a = document.getElementById("num1").value=8;
-     }
-     function nine () {
-       a = document.getElementById("num1").value=9;
-     }
-     function zero () {
-       a = document.getElementById("num1").value=0;
-     }*/
 
   </script>
 
