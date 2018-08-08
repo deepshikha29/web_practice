@@ -29,7 +29,7 @@
 
     <button class="inputBtn" type="button" name="+">+</button>
 
-    <button type="button">-</button>
+    <button class="inputBtn" type="button" name="-">-</button>
     <br>
     <button type="button">*</button>
     <button type="button">/</button>
@@ -41,8 +41,8 @@
   </form>
 
   <script> 
-
-    var a = 0;
+  
+      var a = 0;
     var b = 0;
     var x = 0;
     var inputBtns = document.getElementsByClassName('inputBtn');
@@ -55,15 +55,35 @@
       }
     }
     function equal() {       
-      output = document.getElementById("num1").value.split("+");
-      sum = 0;
+     var output = document.getElementById("num1").value.split("");
+      console.log(output);
+      /*sum = 0;
       console.log(output.length);
       for ( i=0; i<output.length; i++){
       sum = sum + Number(output[i]);
       console.log(sum);
      }
      console.log(sum);
-      document.getElementById("num1").value += "="+sum;
+      document.getElementById("num1").value += "="+sum;*/
+     var num = output[0];
+     console.log(num);
+     for (i = 1; i< output.length; i = i+2)
+     {
+       console.log(i);
+       if (output[i]=="+")
+       {
+         num = Number(num) + Number(output[i+1]);
+       }
+       console.log(num);
+       if (output[i]=="-")
+       {
+         num = Number(num) - Number(output[i+1]);
+       }
+            
+     }
+     console.log(num);
+       document.getElementById("num1").value += "="+num;
+
     }
 
 
