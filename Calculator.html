@@ -10,7 +10,7 @@
 
 
   <form>
-    <input type="text" id="num1" placeholder="num1" size="9">
+    <input type="text" id="InputBox" placeholder="InputBox" size="9">
     <br>
     <button class="inputBtn" type="button" name="1">1</button size="3">
     <button class="inputBtn" type="button" name="2">2</button size="3">
@@ -31,8 +31,8 @@
 
     <button class="inputBtn" type="button" name="-">-</button>
     <br>
-    <button type="button">*</button>
-    <button type="button">/</button>
+    <button class="inputBtn" type="button" name="*">*</button>
+    <button class="inputBtn" type="button" name="/">/</button>
 
     <button type="button" onclick="equal()" name="=">=</button>
 
@@ -41,60 +41,52 @@
   </form>
 
   <script> 
-  
-      var a = 0;
-    var b = 0;
-    var x = 0;
+
     var inputBtns = document.getElementsByClassName('inputBtn');
-    var length = inputBtns.length;
-    for (i = 0; i < length; i++) {
+    var lengthOfInputButtons = inputBtns.length;
+    for (i = 0; i < lengthOfInputButtons; i++) {
       inputBtns[i].onclick = function () {
         
-        document.getElementById('num1').value += this.getAttribute("name");
+        document.getElementById('InputBox').value += this.getAttribute("name");
 
       }
     }
     function equal() {       
-     var output = document.getElementById("num1").value.split("");
-      console.log(output);
-      /*sum = 0;
-      console.log(output.length);
-      for ( i=0; i<output.length; i++){
-      sum = sum + Number(output[i]);
-      console.log(sum);
-     }
-     console.log(sum);
-      document.getElementById("num1").value += "="+sum;*/
-     var num = output[0];
-     console.log(num);
-     for (i = 1; i< output.length; i = i+2)
+     var UserInput = document.getElementById("InputBox").value.split("");
+     console.log(UserInput);
+     var Output = UserInput[0];
+     console.log(Output);
+     for (i = 1; i< UserInput.length; i = i+2)
      {
        console.log(i);
-       if (output[i]=="+")
+       if (UserInput[i]=="+")
        {
-         num = Number(num) + Number(output[i+1]);
+        Output = Number(Output) + Number(UserInput[i+1]);
        }
-       console.log(num);
-       if (output[i]=="-")
+       console.log(Output);
+       if (UserInput[i]=="-")
        {
-         num = Number(num) - Number(output[i+1]);
+         Output= Number(Output) - Number(UserInput[i+1]);
+       }
+
+       if (UserInput[i]=="*")
+       {
+         Output= Number(Output) * Number(UserInput[i+1]);
+       }
+
+       if (UserInput[i]=="/")
+       {
+         Output= Number(Output) / Number(UserInput[i+1]);
        }
             
      }
-     console.log(num);
-       document.getElementById("num1").value += "="+num;
+     console.log(Output);
+       document.getElementById("InputBox").value += "=" + '\n' + Output;
 
     }
 
-
-    /*function add() {
-      //var a = Number(document.getElementById("num1").value);
-      var b = Number(document.getElementById("num2").value);
-      document.getElementById("result").value = x + b;
-    }*/
-
     function clean() {
-      document.getElementById('num1').value = '';
+      document.getElementById('InputBox').value = '';
     }
 
   </script>
