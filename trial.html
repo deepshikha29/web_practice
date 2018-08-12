@@ -1,0 +1,123 @@
+<html>
+
+<head>
+    <link rel="stylesheet" type="text/css" href="calculator.css" />
+    <title>trial</title>
+</head>
+
+<body>
+
+
+
+    <form>
+        <input type="text" id="InputBox" placeholder="InputBox" size="9">
+        <br>
+        <button class="inputBtn" type="button" name="1">1</button size="3">
+        <button class="inputBtn" type="button" name="2">2</button size="3">
+        <button class="inputBtn" type="button" name="3">3</button size="3">
+        <br>
+        <button class="inputBtn" type="button" name="4">4</button>
+        <button class="inputBtn" type="button" name="5">5</button>
+        <button class="inputBtn" type="button" name="6">6</button>
+        <br>
+        <button class="inputBtn" type="button" name="7">7</button>
+        <button class="inputBtn" type="button" name="8">8</button>
+        <button class="inputBtn" type="button" name="9">9</button>
+        <br>
+        <button class="inputBtn" type="button" name="0">0</button>
+        <button type="button" onclick="clean()">C</button>
+
+        <button class="operator" type="button" name="+">+</button>
+
+        <button class="inputBtn" type="button" name="-">-</button>
+        <br>
+        <button class="inputBtn" type="button" name="*">*</button>
+        <button class="inputBtn" type="button" name="/">/</button>
+
+        <button type="button" onclick="equal()" name="=">=</button>
+
+
+
+    </form>
+
+    <script> 
+
+        var inputBtns = document.getElementsByClassName('inputBtn');
+        console.log(inputBtns);
+        var lengthOfInputButtons = inputBtns.length;
+        var clickOperatore = document.getElementsByClassName('operator');
+        var currentOperator;
+        var IsOperator = false;
+        
+
+        
+            for (i = 0; i < lengthOfInputButtons; i++) {
+                inputBtns[i].onclick = function () {
+
+                    document.getElementById('InputBox').value += this.getAttribute("name");
+                    var num = document.getElementById('InputBox').value;
+
+                    console.log("number:" + num);
+
+                }
+            }
+        
+        
+        for (j = 0; j < clickOperatore.length; j++) {
+            clickOperatore[j].onclick = function () {
+                if (IsOperator==false){
+                document.getElementById('InputBox').value += this.getAttribute("name");
+                currentOperator = this.getAttribute("name");
+                IsOperator = true;
+                console.log(currentOperator);
+                }
+                else{
+                    array=document.getElementById("InputBox").value.split(currentOperator);
+                    var output = Number(array[0])+Number(array[1]) + this.getAttribute("name");
+                    document.getElementById('InputBox').value = output;
+                    console.log(output);
+                    IsOperator = false;
+                }
+
+            }
+        }
+        
+       /* function equal() {
+            var UserInput = document.getElementById("InputBox").value.split("");
+            console.log(UserInput);
+            var Output = UserInput[0];
+            console.log(Output);
+            for (i = 1; i < UserInput.length; i = i + 2) {
+                console.log(i);
+                if (UserInput[i] == "+") {
+                    Output = Number(Output) + Number(UserInput[i + 1]);
+                }
+                console.log(Output);
+                if (UserInput[i] == "-") {
+                    Output = Number(Output) - Number(UserInput[i + 1]);
+                }
+
+                if (UserInput[i] == "*") {
+                    Output = Number(Output) * Number(UserInput[i + 1]);
+                }
+
+                if (UserInput[i] == "/") {
+                    Output = Number(Output) / Number(UserInput[i + 1]);
+                }
+
+            }
+            console.log(Output);
+            document.getElementById("InputBox").value += "=" + '\n' + Output;
+
+        }
+
+        function clean() {
+            document.getElementById('InputBox').value = '';
+        }*/
+
+    </script>
+
+
+</body>
+
+</html>
