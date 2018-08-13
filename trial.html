@@ -29,12 +29,12 @@
 
         <button class="operator" type="button" name="+">+</button>
 
-        <button class="inputBtn" type="button" name="-">-</button>
+        <button class="operator" type="button" name="-">-</button>
         <br>
-        <button class="inputBtn" type="button" name="*">*</button>
-        <button class="inputBtn" type="button" name="/">/</button>
+        <button class="operator" type="button" name="*">*</button>
+        <button class="operator" type="button" name="/">/</button>
 
-        <button type="button" onclick="equal()" name="=">=</button>
+        <button  onclick="equal()" name="=">=</button>
 
 
 
@@ -73,10 +73,19 @@
                 }
                 else{
                     array=document.getElementById("InputBox").value.split(currentOperator);
+
+                    if (currentOperator=="+")
+                    {
                     var output = Number(array[0])+Number(array[1]) + this.getAttribute("name");
+                    }
+                    if (currentOperator=="-")
+                    {
+                    var output = Number(array[0])-Number(array[1]) + this.getAttribute("name");
+                    }
                     document.getElementById('InputBox').value = output;
+                    currentOperator = this.getAttribute("name");
                     console.log(output);
-                    IsOperator = false;
+                    
                 }
 
             }
