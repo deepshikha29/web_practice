@@ -1,7 +1,7 @@
 <html>
 
 <head>
-    <link rel="stylesheet" type="text/css" href="calculator.css" />
+
     <title>trial</title>
 </head>
 
@@ -34,7 +34,7 @@
         <button class="operator" type="button" name="*">*</button>
         <button class="operator" type="button" name="/">/</button>
 
-        <button  onclick="equal()" name="=">=</button>
+        <button class="operator" type="button" name="=">=</button>
 
 
 
@@ -46,8 +46,8 @@
         console.log(inputBtns);
         var lengthOfInputButtons = inputBtns.length;
         var clickOperatore = document.getElementsByClassName('operator');
-        var currentOperator;
-        var IsOperator = false;
+        var BeingUsedOperator;
+        var IsOperatorPresent = false;
         
 
         
@@ -65,27 +65,40 @@
         
         for (j = 0; j < clickOperatore.length; j++) {
             clickOperatore[j].onclick = function () {
-                if (IsOperator==false){
+                if (IsOperatorPresent==false){
                 document.getElementById('InputBox').value += this.getAttribute("name");
-                currentOperator = this.getAttribute("name");
-                IsOperator = true;
+                BeingUsedOperator = this.getAttribute("name");
+                IsOperatorPresent = true;
                 console.log(currentOperator);
                 }
                 else{
-                    array=document.getElementById("InputBox").value.split(currentOperator);
+                    array=document.getElementById("InputBox").value.split(BeingUsedOperator);
 
-                    if (currentOperator=="+")
+                    if (BeingUsedOperator=="+")
                     {
-                    var output = Number(array[0])+Number(array[1]) + this.getAttribute("name");
+                    var output = Number(array[0])+Number(array[1]);
                     }
-                    if (currentOperator=="-")
+                    if (BeingUsedOperator=="-")
                     {
-                    var output = Number(array[0])-Number(array[1]) + this.getAttribute("name");
+                    var output = Number(array[0])-Number(array[1]);
                     }
-                    document.getElementById('InputBox').value = output;
-                    currentOperator = this.getAttribute("name");
+                    if (BeingUsedOperator=="*")
+                    {
+                    var output = Number(array[0])*Number(array[1]);
+                    }
+                    if (BeingUsedOperator=="/")
+                    {
+                    var output = Number(array[0])/Number(array[1]);
+                    }
+                    if (this.getAttribute("name")=="=")
+                    {
+                        document.getElementById('InputBox').value = output;
+                    }
+                    else{
+                    document.getElementById('InputBox').value = output + this.getAttribute("name");
+                    BeingUsedOperator = this.getAttribute("name");
                     console.log(output);
-                    
+                    }
                 }
 
             }
