@@ -1,97 +1,46 @@
 <html>
 
 <head>
-  <link rel="stylesheet" type="text/css" href="calculator.css" />
-  <title>calculator</title>
+
+    <title>Calculator</title>
 </head>
 
 <body>
 
 
 
-  <form>
-    <input type="text" id="InputBox" placeholder="InputBox" size="9">
-    <br>
-    <button class="inputBtn" type="button" name="1">1</button size="3">
-    <button class="inputBtn" type="button" name="2">2</button size="3">
-    <button class="inputBtn" type="button" name="3">3</button size="3">
-    <br>
-    <button class="inputBtn" type="button" name="4">4</button>
-    <button class="inputBtn" type="button" name="5">5</button>
-    <button class="inputBtn" type="button" name="6">6</button>
-    <br>
-    <button class="inputBtn" type="button" name="7">7</button>
-    <button class="inputBtn" type="button" name="8">8</button>
-    <button class="inputBtn" type="button" name="9">9</button>
-    <br>
-    <button class="inputBtn" type="button" name="0">0</button>
-    <button type="button" onclick="clean()">C</button>
+    <form>
+        <input type="text" id="InputBox" placeholder="InputBox" size="9">
+        <br>
+        <button class="inputBtn" type="button" name="1">1</button size="3">
+        <button class="inputBtn" type="button" name="2">2</button size="3">
+        <button class="inputBtn" type="button" name="3">3</button size="3">
+        <br>
+        <button class="inputBtn" type="button" name="4">4</button>
+        <button class="inputBtn" type="button" name="5">5</button>
+        <button class="inputBtn" type="button" name="6">6</button>
+        <br>
+        <button class="inputBtn" type="button" name="7">7</button>
+        <button class="inputBtn" type="button" name="8">8</button>
+        <button class="inputBtn" type="button" name="9">9</button>
+        <br>
+        <button class="inputBtn" type="button" name="0">0</button>
+        <button type="button" onclick="clean()">C</button>
 
-    <button class="inputBtn" type="button" name="+">+</button>
+        <button class="operator" type="button" name="+">+</button>
 
-    <button class="inputBtn" type="button" name="-">-</button>
-    <br>
-    <button class="inputBtn" type="button" name="*">*</button>
-    <button class="inputBtn" type="button" name="/">/</button>
+        <button class="operator" type="button" name="-">-</button>
+        <br>
+        <button class="operator" type="button" name="*">*</button>
+        <button class="operator" type="button" name="/">/</button>
 
-    <button type="button" onclick="equal()" name="=">=</button>
-
-
-
-  </form>
-
-  <script> 
-
-    var inputBtns = document.getElementsByClassName('inputBtn');
-    var lengthOfInputButtons = inputBtns.length;
-    for (i = 0; i < lengthOfInputButtons; i++) {
-      inputBtns[i].onclick = function () {
-        
-        document.getElementById('InputBox').value += this.getAttribute("name");
-
-      }
-    }
-    function equal() {       
-     var UserInput = document.getElementById("InputBox").value.split("");
-     console.log(UserInput);
-     var Output = UserInput[0];
-     console.log(Output);
-     for (i = 1; i< UserInput.length; i = i+2)
-     {
-       console.log(i);
-       if (UserInput[i]=="+")
-       {
-        Output = Number(Output) + Number(UserInput[i+1]);
-       }
-       console.log(Output);
-       if (UserInput[i]=="-")
-       {
-         Output= Number(Output) - Number(UserInput[i+1]);
-       }
-
-       if (UserInput[i]=="*")
-       {
-         Output= Number(Output) * Number(UserInput[i+1]);
-       }
-
-       if (UserInput[i]=="/")
-       {
-         Output= Number(Output) / Number(UserInput[i+1]);
-       }
-            
-     }
-     console.log(Output);
-       document.getElementById("InputBox").value += "=" + '\n' + Output;
-
-    }
-
-    function clean() {
-      document.getElementById('InputBox').value = '';
-    }
-
-  </script>
+        <button class="operator" type="button" name="=">=</button>
 
 
+
+    </form>
+
+    <script src="Calculator.js"></script>
 </body>
 
 </html>
